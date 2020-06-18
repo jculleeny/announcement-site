@@ -1,0 +1,16 @@
+{
+  "name": "twin-site",
+  "version": "1.0.0",
+  "description": "------ Needs ------\r - Way to vote on bb/gg/bg\r - Submit vote with name\r - Optional name ideas\r - Spotify playlist\r - Link to registry\r - Graph of vote results\r -",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "John Culleeny",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "https": "^1.0.0"
+  }
+}

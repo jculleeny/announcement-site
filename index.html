@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="public/styles.css">
+    <title>Twins, yo!</title>
+</head>
+<body>
+    <div class="slide-container">
+        <!-- WELCOME -->
+        <div class="slide" id="welcome">
+            <div class="welcome-wrapper container">
+                <h1>We havin' twins!</h1>
+                <p>Bri and John are having twins, and we want you to guess the sexes and delivery date!
+                    We also want to hear some good name suggestions from you! Give us your full name to 
+                    see who comes closest!
+                </p>
+                <h3><a href="">Link to our Baby Registry</a></h3>
+            </div>
+        </div>
+        <!-- VOTE -->
+        <div class="slide" id="vote">
+            <div class="radios-wrapper container">
+                <input type="radio" name="sex" id="boyBoy">
+                <label for="boyBoy">Boy & Boy</label>
+                <input type="radio" name="sex" id="boyGirl">
+                <label for="boyGirl">Boy & Girl</label>
+                <input type="radio" name="sex" id="girlGirl">
+                <label for="girlGirl">Girl & Girl</label>
+            </div>
+        </div>
+        <!-- DUE DATE CALENDAR GUESS -->
+        <div class="slide" id="calendar">
+            <div class="calendar-wrapper container">
+                <label for="deliveryDate">Guess the Delivery Date ( 11/09/20 ):</label>
+                <input type="date" name="deliveryDate" id="deliveryDate">
+            </div>
+        </div>
+        <!-- NAME SUGGESTIONS -->
+        <div class="slide" id="names">
+            <div class="name-suggestion-wrapper container">
+                <label for="">Name our babies:</label>
+                <input type="text" name="nameSuggestion" id="nameSuggestion1">
+                &
+                <input type="text" name="nameSuggestion" id="nameSuggestion2">
+            </div>
+        </div>
+        <!-- THANKS FOR PLAYING AND GIVE US YOUR FULL NAME -->
+        <div class="slide" id="thanksFullName">
+            <div class="name-wrapper container">
+                <label for="guesser">Full Name:</label>
+                <input type="text" name="guesser" id="guesser">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        </div>
+        <!-- GRAPHS WITH THE DATA COLLECTED -->
+        <div class="slide" id="graphs">
+            <div class="graph-wrapper container">
+                <canvas id="myChart" width="200" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
+    <script src="src/main.js"></script>
+    <script src="src/donut.js"></script>
+</body>
+</html>
