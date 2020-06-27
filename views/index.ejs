@@ -1,0 +1,87 @@
+<%- include("partials/header"); -%>
+
+<!-- WELCOME -->
+<h3>We're Having Twins!</h3>
+<p>Bri and John are having twins, and we want you to guess the sexes and delivery date!
+          We also want to hear some good name suggestions from you! Give us your full name to 
+          see who comes closest!
+</p>
+<h4><a href="">Link to our Baby Registry</a></h4>
+
+<ul class="collapsible">
+  <li>
+    <div class="collapsible-header"><i class="material-icons">wc</i>Guess the Genders</div>
+    <div class="collapsible-body">
+      <!-- VOTE -->
+      <p>Let us know what you think the gender of our twins will be.</p>
+      <form>
+        <label for="boyBoy" class="vote">
+          <input type="radio" name="sex" id="boyBoy">
+          <span>Boy & Boy</span>
+        </label>
+        <label for="boyGirl" class="vote">
+          <input type="radio" name="sex" id="boyGirl">
+          <span>Boy & Girl</span>
+        </label>
+        <label for="girlGirl" class="vote">
+          <input type="radio" name="sex" id="girlGirl">
+          <span>Girl & Girl</span>
+        </label>
+      </div>
+  </li>
+  <li>
+    <div class="collapsible-header"><i class="material-icons">insert_invitation</i>Guess the Delivery Date</div>
+    <div class="collapsible-body">
+      <!-- DUE DATE CALENDAR GUESS -->
+      <p>
+        The projected Delivery Date is November 09, 2020, but twins don't 
+        usually go full term. Give us your best guess on what the due date 
+        will actually be!
+      </p>
+      <label for="deliveryDate">Guess the Delivery Date:
+        <input type="date" name="deliveryDate" id="deliveryDate">
+      </label>
+    </div>
+  </li>
+  <li>
+    <div class="collapsible-header"><i class="material-icons">child_care</i>Name Suggestions</div>
+    <div class="collapsible-body">
+        <!-- NAME SUGGESTIONS -->
+      <span><h4>Help Us Name Our Kids</h4></span>
+      <span><p>We're looking for help with names for the kids. Feel free to give us boy or girl names!</p></span>
+      <label for="nameSuggestion">Help with Name Suggestions:
+        <input type="text" name="nameSuggestion" id="nameSuggestion1" placeholder="Name 1">
+        <input type="text" name="nameSuggestion" id="nameSuggestion2" placeholder="Name 2">
+      </label>
+    </div>
+  </li>
+  <li>
+    <div class="collapsible-header"><i class="material-icons">info_outline</i>Your Name</div>
+    <div class="collapsible-body">
+      <!-- THANKS FOR PLAYING AND GIVE US YOUR FULL NAME -->
+      <p>Enter your name so we can keep track of who got the closest.</p>
+      <div class="input-field">
+        <input type="text" name="firstName">
+        <label for="firstName">First Name:</label>
+      </div>
+      <div class="input-field">
+        <input type="text" name="lastName">
+        <label for="lastName">Last Name</label>
+      </div>
+    </div>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">notifications</i>Email for Updates</div>
+      <div class="collapsible-body">
+        <p>Enter your email to get updates on the Gender reveal and when the twins are delivered.</p>
+        <div class="input-field">
+          <input type="text" name="email" id="email">
+          <label for="email">Email (Optional):</label>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+      </div>
+    </li>
+  </li>
+</ul>
+
+<%- include("partials/footer"); -%>

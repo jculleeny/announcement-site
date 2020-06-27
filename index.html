@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="public/styles.css">
+    <link rel="stylesheet" href="">
     <title>Twins, yo!</title>
 </head>
 <body>
@@ -11,7 +11,7 @@
         <!-- WELCOME -->
         <div class="slide" id="welcome">
             <div class="welcome-wrapper container">
-                <h1>We havin' twins!</h1>
+                <h1>We're Having Twins!</h1>
                 <p>Bri and John are having twins, and we want you to guess the sexes and delivery date!
                     We also want to hear some good name suggestions from you! Give us your full name to 
                     see who comes closest!
@@ -40,17 +40,23 @@
         <!-- NAME SUGGESTIONS -->
         <div class="slide" id="names">
             <div class="name-suggestion-wrapper container">
-                <label for="">Name our babies:</label>
+                <h2>Help Us Name Our Kids</h2>
+                <p>We're looking for help with names for the kids. Feel free to give us boy or girl names!</p>
+                <label for="">Help with Name Suggestions:</label>
                 <input type="text" name="nameSuggestion" id="nameSuggestion1">
                 &
                 <input type="text" name="nameSuggestion" id="nameSuggestion2">
             </div>
         </div>
         <!-- THANKS FOR PLAYING AND GIVE US YOUR FULL NAME -->
-        <div class="slide" id="thanksFullName">
+        <div class="slide" id="thanks">
             <div class="name-wrapper container">
-                <label for="guesser">Full Name:</label>
-                <input type="text" name="guesser" id="guesser">
+                <label for="firstName">First Name:</label>
+                <input type="text" name="firstName" id="guesser">
+                <label for="lastName">Last Name</label>
+                <input type="text" name="lastName">
+                <label for="email">Email:</label>
+                <input type="text" name="email" id="email">
                 <button type="submit">Submit</button>
             </div>
         </form>
@@ -64,7 +70,5 @@
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.js"></script>
-    <script src="src/main.js"></script>
-    <script src="src/donut.js"></script>
 </body>
 </html>
