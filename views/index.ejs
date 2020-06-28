@@ -14,17 +14,17 @@
     <div class="collapsible-body">
       <!-- VOTE -->
       <p>Let us know what you think the gender of our twins will be.</p>
-      <form>
+      <form action='/' method="POST">
         <label for="boyBoy" class="vote">
-          <input type="radio" name="sex" id="boyBoy">
+          <input type="radio" name="gender" id="boyBoy" value="boy-boy">
           <span>Boy & Boy</span>
         </label>
         <label for="boyGirl" class="vote">
-          <input type="radio" name="sex" id="boyGirl">
+          <input type="radio" name="gender" id="boyGirl" value="boy-girl">
           <span>Boy & Girl</span>
         </label>
         <label for="girlGirl" class="vote">
-          <input type="radio" name="sex" id="girlGirl">
+          <input type="radio" name="gender" id="girlGirl" value="girl-girl">
           <span>Girl & Girl</span>
         </label>
       </div>
@@ -50,8 +50,9 @@
       <span><h4>Help Us Name Our Kids</h4></span>
       <span><p>We're looking for help with names for the kids. Feel free to give us boy or girl names!</p></span>
       <label for="nameSuggestion">Help with Name Suggestions:
-        <input type="text" name="nameSuggestion" id="nameSuggestion1" placeholder="Name 1">
-        <input type="text" name="nameSuggestion" id="nameSuggestion2" placeholder="Name 2">
+        <input type="text" name="nameSuggestion1" id="nameSuggestion1" placeholder="Name 1">
+        <input type="text" name="nameSuggestion2" id="nameSuggestion2" placeholder="Name 2">
+        <input type="text" name="nameSuggestion3" id="nameSuggestion3" placeholder="Name 3">
       </label>
     </div>
   </li>
@@ -61,11 +62,11 @@
       <!-- THANKS FOR PLAYING AND GIVE US YOUR FULL NAME -->
       <p>Enter your name so we can keep track of who got the closest.</p>
       <div class="input-field">
-        <input type="text" name="firstName">
+        <input type="text" name="firstName" id="firstName">
         <label for="firstName">First Name:</label>
       </div>
       <div class="input-field">
-        <input type="text" name="lastName">
+        <input type="text" name="lastName" id="lastName">
         <label for="lastName">Last Name</label>
       </div>
     </div>

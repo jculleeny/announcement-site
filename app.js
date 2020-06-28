@@ -12,7 +12,7 @@ app.use( bodyParser.urlencoded( {extended: true } ) );
 app.use( express.static( 'public' ) );
 
 // Setup the MongoDB Database using mongoose
-mongoose.connect( 'mongodb://localhost:27017/blogDB', { useNewUrlParser: true, useUnifiedTopology: true } );
+mongoose.connect( 'mongodb://localhost:27017/twinsDB', { useNewUrlParser: true, useUnifiedTopology: true } );
 
 // Mongoose Schema
 const formSchema = new mongoose.Schema( {
@@ -26,12 +26,37 @@ const formSchema = new mongoose.Schema( {
     name3: String
 })
 
-// Send index.html
+const Form = mongoose.model( 'Form', formSchema );
+
+// Send index.ejs
 app.get( '/', function( req, res ) {
     res.render( 'index' );
 })
 
+app.post( '/', function( req, res) {
+    const form = new Form({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        genders: req.body.gender,
+        deliveryDate: req.body.deliveryDate,
+        name1: req.body.nameSuggestion1,
+        name2: req.body.nameSuggestion2,
+        name3: req.body.nameSuggestion3
+    })
+    
+    console.log( form );
+    form.save( function( err ) {
+        if ( !err ) {
+            res.redirect( '/submitted' );
+        }
+    })
+
+})
+
 app.get( '/submitted', function( req, res ) {
+
+
     res.render( 'submitted' );
 } )
 
