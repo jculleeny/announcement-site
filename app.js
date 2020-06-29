@@ -55,10 +55,107 @@ app.post( '/', function( req, res) {
 })
 
 app.get( '/submitted', function( req, res ) {
-
-
     res.render( 'submitted' );
 } )
+
+
+// ----------- API ------------ //
+//
+// Broad API for REST
+app.route( '/form' )
+
+.get( function( req, res ) {
+    Form.find( function( err, foundForm ) {
+        res.send( foundForm );
+    })
+})
+
+.post( function( req, res ) {
+    // const newForm = new Form({
+    //     firstName: req.body.firstName,
+    //     lastName: req.body.lastName,
+    //     email: req.body.email,
+    //     genders: req.body.gender,
+    //     deliveryDate: req.body.deliveryDate,
+    //     name1: req.body.nameSuggestion1,
+    //     name2: req.body.nameSuggestion2,
+    //     name3: req.body.nameSuggestion3
+    // })
+
+    // newForm.save( function( err ) {
+    //     if ( !err ) {
+    //         res.send( 'Successfully added a new form object' );
+    //     } else {
+    //         res.send( err );
+    //     }
+    // })
+})
+
+.delete( function( req, res ) {
+    Form.deleteMany( function( err ) {
+        if ( !err ) {
+            res.send( 'Successffully deleted all articles.' );
+        } else {
+            res.send( err );
+        }
+    })
+})
+
+// Individual API for REST
+app.route( '/form/:formID' )
+
+.get( function( req, res ) {
+    Form.findOne(
+        { _id: req.params.formID },
+        function( err, foundID ) {
+            if ( foundID ) {
+                res.send( foundID );
+            } else {
+                res.send( 'No form matching that ID were found' );
+                res.status( 404 );
+            }
+        }
+    )
+})
+
+.put( function( req, res ) {
+    Form.update(
+        { _id: req.body.firstName },
+        { _id: req.body.lastName },
+        { _id: req.body.email },
+        { _id: req.body.gender },
+        { _id: req.body.deliveryDate },
+        { _id: req.body.name1 },
+        { _id: req.body.name2 },
+        { _id: req.body.name3 },
+        { overwrite: true },
+        function( err ) {
+            if ( !err ) {
+                res.send( 'Successfully updated article.' );
+            }
+        }
+
+    )
+})
+
+.patch( function( req, res ) {
+    console.log( 'Patching is not setup at this time' );
+})
+
+.delete( function( req, res ) {
+    Form.deleteOne(
+        { _id: req.params.formID },
+        function( err ) {
+            if ( !err ) {
+                res.send( 'Successfully deleted the corresponding form.' );
+            } else {
+                res.send( err );
+            }
+        }
+    )
+})
+
+
 
 // Setup server and port
 app.listen( 3000, function() {
