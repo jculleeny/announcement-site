@@ -2,6 +2,8 @@ const express = require( 'express' );
 const bodyParser = require( 'body-parser' );
 const mongoose = require( 'mongoose' );
 const ejs = require( 'ejs' );
+const https = require( 'https' );
+const User = require('../chartjs-mongodb/Chart.Js-MongoDB-nodejs/models/User');
 
 // Create Express App
 const app = express();
@@ -34,6 +36,47 @@ app.get( '/', function( req, res ) {
 })
 
 app.post( '/', function( req, res) {
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
+    const email = req.body.email;
+
+    const data = {
+        members: [
+            {
+                email_address: email,
+                status: 'subscribed',
+                merge_fields: {
+                    FNAME: firstName,
+                    LNAME: lastName
+                }
+            }
+        ]
+    };
+
+    var jsonData = JSON.stringify( data );
+
+    const url = 'https://us10.api.mailchimp.com/3.0/lists/3bcaecddd8';
+    const options = {
+        method: "POST",
+        auth: "john:9e1c4d779ff7ccbffb8621ccf1ed12d6-us10"
+    }
+
+    const request = https.request( url, options, function( response ) {
+
+        if ( response.statusCode === 200 ) {
+            res.sendFile( __dirname + '/success.html' );
+        } else {
+            res.sendFile( __dirname + '/failure.html' );
+        }
+
+        response.on( 'data', function( data ) {
+            //console.log( JSON.parse( data ) );
+        })
+    })
+
+    request.write( jsonData );
+    request.end();
+
     const form = new Form({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -94,7 +137,7 @@ app.route( '/form' )
 .delete( function( req, res ) {
     Form.deleteMany( function( err ) {
         if ( !err ) {
-            res.send( 'Successffully deleted all articles.' );
+            res.send( 'Successfully deleted all articles.' );
         } else {
             res.send( err );
         }
